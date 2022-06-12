@@ -1,0 +1,17 @@
+[Unit]
+Description=rhixecompany daemon
+Requires=rhixecompany.socket
+After=network.target
+
+[Service]
+User=bot
+Group=www-data
+WorkingDirectory=/var/www/rhixe.company
+ExecStart=/home/bot/.local/share/virtualenvs/rhixe.company-jxzuH4fd/bin/gunicorn \
+	--access-logfile - \
+	--workers 3 \
+  	--bind unix:/run/rhixecompany.sock \
+  	ecom.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
