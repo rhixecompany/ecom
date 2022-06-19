@@ -23,7 +23,7 @@ Live Demo can be viewed at https://www.rhixe.company/
 * 1 - Clone project: git clone https://github.com/rhixecompany/ecom/
 * 2 - cd ecom
 * 3 - Create virtual environment: pipenv shell
-* 4 - pipenv install --skip-Pipfile
+* 4 - pipenv install --skip-lock
 * 5 - python3 manage.py migrate
 * 6 - python3 manage.py runserver
 
