@@ -22,10 +22,11 @@ Live Demo can be viewed at https://www.rhixe.company/
 
 * 1 - Clone project: git clone https://github.com/rhixecompany/ecom/
 * 2 - cd ecom
-* 3 - Create virtual environment: virtualenv myenv
-* 4 - myenv\scripts\activate
-* 5 - pip install -r requirements.txt
+* 3 - Create virtual environment: pipenv shell
+* 4 - pipenv install --skip-Pipfile
+* 5 - python3 manage.py migrate
 * 6 - python3 manage.py runserver
+
 
 # Install react modules
 * 1 - cd frontend
