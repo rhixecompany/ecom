@@ -1,4 +1,4 @@
-#!/home/bot/Desktop/development/python/proshop_django/env/bin/python3
+#!/home/bot/dev/projects/ecom/env/bin/python
 
 # $Id: rst2xetex.py 7847 2015-03-17 17:30:47Z milde $
 # Author: Guenter Milde

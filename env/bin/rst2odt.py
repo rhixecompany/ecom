@@ -1,4 +1,4 @@
-#!/home/bot/Desktop/development/python/proshop_django/env/bin/python3
+#!/home/bot/dev/projects/ecom/env/bin/python
 
 # $Id: rst2odt.py 5839 2009-01-07 19:09:28Z dkuhlman $
 # Author: Dave Kuhlman <dkuhlman@rexx.com>

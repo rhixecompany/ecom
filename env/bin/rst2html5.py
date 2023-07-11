@@ -1,4 +1,4 @@
-#!/home/bot/Desktop/development/python/proshop_django/env/bin/python3
+#!/home/bot/dev/projects/ecom/env/bin/python
 # -*- coding: utf8 -*-
 # :Copyright: © 2015 Günter Milde.
 # :License: Released under the terms of the `2-Clause BSD license`_, in short:

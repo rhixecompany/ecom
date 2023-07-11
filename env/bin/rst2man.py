@@ -1,4 +1,4 @@
-#!/home/bot/Desktop/development/python/proshop_django/env/bin/python3
+#!/home/bot/dev/projects/ecom/env/bin/python
 
 # Author: 
 # Contact: grubert@users.sf.net

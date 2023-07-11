@@ -1,6 +1,5 @@
 node_modules
 
-
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
@@ -10,7 +9,6 @@ node_modules
 *.pyc
 __pycache__/
 local_settings.py
-
 
 media
 
@@ -134,8 +132,6 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-
-
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -168,3 +164,8 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+static/
+.vscode/
+env/
+frontend/node_modules/
+frontend/build/

@@ -1,4 +1,4 @@
-#!/home/bot/Desktop/development/python/proshop_django/env/bin/python
+#!/home/bot/dev/projects/ecom/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
