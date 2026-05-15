@@ -34,7 +34,6 @@ def getProducts(request):
         page = 1
 
     page = int(page)
-    print('Page:', page)
     serializer = ProductSerializer(products, many=True)
     return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
 
@@ -96,7 +95,7 @@ def updateProduct(request, pk):
 def deleteProduct(request, pk):
     product = Product.objects.get(_id=pk)
     product.delete()
-    return Response('Producted Deleted')
+    return Response('Product Deleted')
 
 
 @api_view(['POST'])
