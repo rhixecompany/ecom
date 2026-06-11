@@ -1,0 +1,1 @@
+@redux-devtools/extension @fortawesome/fontawesome-free axios bootstrap react-bootstrap react-paypal-button-v2 react-redux react-router-bootstrap react-router-dom redux redux-thunk
