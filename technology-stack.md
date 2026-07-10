@@ -1,9 +1,11 @@
 # Technology Stack — ecom
 
 ## Overview
+
 Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 
 ## Backend
+
 | Technology | Version | Purpose |
 |------------|---------|---------|
 | Python | 3.10 | Runtime |
@@ -13,6 +15,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 | django-cors-headers | — | CORS management |
 
 ## Frontend
+
 | Technology | Version | Purpose |
 |------------|---------|---------|
 | React | 18.2.0 | UI library |
@@ -24,6 +27,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 | PayPal | 2.6.3 | Payment processing |
 
 ## Database & Storage
+
 | Technology | Purpose |
 |------------|---------|
 | SQLite | Development database |
@@ -32,6 +36,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 | Google Cloud Storage | File storage |
 
 ## Deployment
+
 | Tool | Purpose |
 |------|---------|
 | Gunicorn | WSGI server |

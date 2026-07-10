@@ -60,17 +60,20 @@ ecom/
 ## Architectural Patterns
 
 ### Dual-Stack Architecture
+
 - **Django REST Framework**: Backend API server handling data, auth, payments
 - **React + Redux Toolkit**: Frontend SPA consuming DRF API
 - PayPal integration for payment processing
 
 ### REST API Pattern
+
 - API versioned at `/api/v1/`
 - DRF serializers for data validation
 - Token-based authentication (JWT)
 - Axios for frontend HTTP requests
 
 ### Environment-Specific Settings
+
 - Separate Django settings per environment
 - PostgreSQL for production, SQLite for dev
 - Docker Compose for containerized deployment

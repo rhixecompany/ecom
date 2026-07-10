@@ -23,6 +23,7 @@ Welcome to RhixeCompany E-Commerce! This guide will help you navigate and use th
 ### Profile Management
 
 Once logged in, you can:
+
 - View your account information
 - Update your shipping address
 - View order history
@@ -88,6 +89,7 @@ Once logged in, you can:
 ### Admin Access
 
 Admins have access to:
+
 - Product management (add, edit, delete)
 - User management (view, edit)
 - Order management (view, update status)
@@ -127,20 +129,24 @@ Admins have access to:
 ## Troubleshooting
 
 ### Cannot add to cart
+
 - Ensure you are logged in
 - Check that product is in stock
 
 ### Payment failed
+
 - Verify card details
 - Ensure sufficient funds
 - Try alternative payment method
 
 ### Order not showing
+
 - Check order history in profile
 - Verify payment was processed
 - Contact support
 
 ### Cannot login
+
 - Verify email and password
 - Check if account was created
 - Use password reset option
@@ -148,6 +154,7 @@ Admins have access to:
 ## Support
 
 For additional help:
+
 - Check the [FAQ](#) (link to be added)
 - Contact support via email
 - Check order status in profile

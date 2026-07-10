@@ -121,12 +121,14 @@ docker compose up -d
 ## Coding Standards
 
 ### Backend
+
 - **PEP 8**: Python style guide
 - **DRF ViewSets + Serializers**: RESTful API design
 - **SimpleJWT**: Token-based authentication
 - **Serializer validation**: Input validation at API level
 
 ### Frontend
+
 - **React functional components**: Modern React patterns
 - **Redux state management**: `constants/actions/reducers` → components
 - **Axios with JWT**: Authenticated HTTP requests

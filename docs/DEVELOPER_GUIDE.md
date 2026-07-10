@@ -12,12 +12,14 @@
 ### Backend (Django)
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/rhixecompany/ecom.git
    cd ecom
    ```
 
 2. **Create virtual environment**
+
    ```bash
    # Using pipenv (recommended)
    pipenv shell
@@ -29,6 +31,7 @@
    ```
 
 3. **Install dependencies**
+
    ```bash
    pipenv install --skip-lock
 
@@ -37,16 +40,19 @@
    ```
 
 4. **Run database migrations**
+
    ```bash
    python manage.py migrate
    ```
 
 5. **Create superuser (optional)**
+
    ```bash
    python manage.py createsuperuser
    ```
 
 6. **Start development server**
+
    ```bash
    python manage.py runserver
    ```
@@ -56,16 +62,19 @@
 ### Frontend (React)
 
 1. **Navigate to frontend directory**
+
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm start
    ```
@@ -75,11 +84,13 @@
 ## Running Tests
 
 ### Django Tests
+
 ```bash
 python manage.py test
 ```
 
 ### React Tests
+
 ```bash
 cd frontend
 npm test
@@ -88,6 +99,7 @@ npm test
 ## Project Structure
 
 ### Backend Structure
+
 ```
 ecom/
 ├── ecom/                    # Django project settings
@@ -109,6 +121,7 @@ ecom/
 ```
 
 ### Frontend Structure
+
 ```
 frontend/
 ├── public/                  # Static public assets
@@ -195,6 +208,7 @@ Authorization: Bearer <token>
 ## Environment Variables
 
 ### Backend (.env)
+
 ```
 SECRET_KEY=your-secret-key
 DEBUG=True
@@ -209,6 +223,7 @@ DB_PORT=5432
 ```
 
 ### Frontend (.env)
+
 ```
 REACT_APP_API_URL=http://localhost:8000
 ```
@@ -239,6 +254,7 @@ REACT_APP_API_URL=http://localhost:8000
 ### Backend Issues
 
 **Port already in use**
+
 ```bash
 # Find process using port 8000
 lsof -i :8000
@@ -247,6 +263,7 @@ kill -9 <PID>
 ```
 
 **Database migration errors**
+
 ```bash
 # Reset database
 rm db.sqlite3
@@ -257,6 +274,7 @@ python manage.py createsuperuser
 ### Frontend Issues
 
 **Module not found errors**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules
@@ -264,6 +282,7 @@ npm install
 ```
 
 **Port already in use**
+
 ```bash
 # Use different port
 PORT=3001 npm start
@@ -288,6 +307,7 @@ PORT=3001 npm start
 ## Deployment
 
 ### Production Build (Frontend)
+
 ```bash
 cd frontend
 npm run build

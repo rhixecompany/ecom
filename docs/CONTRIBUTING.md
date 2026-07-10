@@ -43,11 +43,13 @@ See [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) for detailed setup instructions.
 ### Git Commit Messages
 
 Use clear, descriptive commit messages:
+
 - `Add user authentication feature`
 - `Fix cart total calculation bug`
 - `Update product listing pagination`
 
 Avoid:
+
 - `Fix stuff`
 - `WIP`
 - Unclear or vague messages
@@ -64,6 +66,7 @@ Avoid:
 ### Pull Request Description
 
 Include:
+
 - Brief description of changes
 - Related issue number (if applicable)
 - Testing performed
@@ -81,6 +84,7 @@ Include:
 ### Bug Reports
 
 When reporting bugs:
+
 - Describe the issue clearly
 - Include steps to reproduce
 - Provide environment details
@@ -89,6 +93,7 @@ When reporting bugs:
 ### Feature Requests
 
 When requesting features:
+
 - Describe the feature
 - Explain the use case
 - Consider implementation approach
@@ -97,6 +102,7 @@ When requesting features:
 ### Documentation
 
 Help improve:
+
 - README files
 - Code comments
 - User guides
@@ -105,6 +111,7 @@ Help improve:
 ### Code Contributions
 
 Areas where contributions are welcome:
+
 - Bug fixes
 - New features
 - Performance improvements
@@ -114,12 +121,14 @@ Areas where contributions are welcome:
 ## Questions?
 
 If you have questions:
+
 - Open an issue for discussion
 - Contact the maintainers directly
 
 ## Recognition
 
 Contributors will be recognized in:
+
 - Project documentation
 - Release notes
 - GitHub contributors list

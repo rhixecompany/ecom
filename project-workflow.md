@@ -18,12 +18,14 @@ npm start  # Runs on :3000 (proxied to :9000)
 ```
 
 ## Testing
+
 ```bash
 python manage.py test   # Django tests
 cd frontend && npm test  # React tests
 ```
 
 ## Deployment
+
 ```bash
 # Backend
 python manage.py collectstatic

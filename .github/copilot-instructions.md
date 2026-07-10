@@ -39,4 +39,3 @@ cd frontend && npm run build
 - Keep Redux code in the actions/reducers/constants pattern.
 - Use environment variables for secrets and storage credentials.
 - Preserve proxy/backend URL expectations when editing frontend code.
-

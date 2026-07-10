@@ -20,11 +20,13 @@ A full-stack ecommerce platform with product management, shopping cart, checkout
 **Description:** Complete customer purchase journey from product discovery through PayPal payment processing.
 
 **Entry Points:**
+
 - **Frontend:** React SPA (`frontend/`)
 - **Backend:** Django REST API at `/api/v1/`
 - **Models:** `base/models.py` — Product, Order, Cart models
 
 **Steps:**
+
 1. **Browsing**: User browses product catalog on React frontend
 2. **API Call**: Frontend fetches products from `GET /api/v1/products/`
 3. **Add to Cart**: User adds item to cart → `POST /api/v1/cart/`
@@ -38,6 +40,7 @@ A full-stack ecommerce platform with product management, shopping cart, checkout
 11. **Stock Update**: Product inventory is decremented
 
 **Sequence Diagram:**
+
 ```
 React SPA               Django DRF API              Database              PayPal
     |                        |                          |                     |
@@ -71,12 +74,14 @@ React SPA               Django DRF API              Database              PayPal
 ```
 
 **Error Handling:**
+
 - Out of stock → validation error on add to cart
 - Payment failure → PayPal handles retry, order kept as "pending"
 - API validation → DRF serializers with field-level errors
 - Model-level signals for inventory consistency
 
 **Test Patterns:**
+
 - Backend: `python manage.py test` — `base/tests.py`
 - Frontend: `npm test` — React component tests
 - API testing via DRF's APITestCase
@@ -88,10 +93,12 @@ React SPA               Django DRF API              Database              PayPal
 **Description:** Admin user manages orders, updates status, and views sales analytics via Django admin.
 
 **Entry Points:**
+
 - Django admin panel
 - Admin-specific API endpoints
 
 **Steps:**
+
 1. Admin logs into Django admin
 2. Views list of orders with status, date, amount
 3. Filters orders by status (pending, paid, shipped, delivered)
@@ -101,5 +108,6 @@ React SPA               Django DRF API              Database              PayPal
 7. Admin views sales dashboard with aggregate data
 
 **Error Handling:**
+
 - Invalid status transitions → validation in admin
 - Missing tracking info → optional field, warning if omitted

@@ -200,11 +200,13 @@ The application uses Redux for centralized state management:
 ## Deployment
 
 ### Development
+
 - Django: `python manage.py runserver`
 - React: `npm start` (port 3000)
 - Proxy configured to forward API requests to Django
 
 ### Production (Heroku-style)
+
 - Debug mode disabled (`DEBUG = False`)
 - WhiteNoise for static file serving
 - Database: PostgreSQL
