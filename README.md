@@ -11,7 +11,7 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 ### Backend
 
 | Category | Technology |
-|---|---|
+| --- | --- |
 | **Web Framework** | Django (latest) |
 | **API Framework** | Django REST Framework (DRF) |
 | **Language** | Python ^3.10 |
@@ -22,7 +22,7 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 ### Frontend
 
 | Category | Technology |
-|---|---|
+| --- | --- |
 | **UI Framework** | React ^18.2.0 |
 | **State Management** | Redux ^4.2.1, redux-thunk |
 | **Routing** | React Router DOM ^5.2.0 |
@@ -103,7 +103,7 @@ docker compose up -d
 ## API Endpoints
 
 | Route | Purpose |
-|---|---|
+| --- | --- |
 | `/api/v1/` | REST API base URL |
 | `/api/v1/products/` | Product CRUD operations |
 | `/api/v1/orders/` | Order management |

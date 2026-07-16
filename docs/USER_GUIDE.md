@@ -78,7 +78,7 @@ Once logged in, you can:
 ### Order Statuses
 
 | Status | Description |
-|--------|-------------|
+| -------- | ------------- |
 | **Processing** | Order received, being prepared |
 | **Paid** | Payment confirmed |
 | **Shipped** | Order is on its way |

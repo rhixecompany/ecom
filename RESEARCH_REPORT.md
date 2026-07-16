@@ -1,117 +1,91 @@
 # RESEARCH_REPORT — ecom
 
-> **Type:** Project research report | **Updated:** 2026-07-16
-
-**Type:** Dual-stack ecommerce platform
-**Tech Stack:** Django REST Framework, React + Redux Toolkit, PostgreSQL, PayPal, Docker Compose
-**Status:** Active
+> **Tech Stack:** Django REST Framework, React + Redux Toolkit, PostgreSQL, PayPal, Docker Compose
 
 ---
 
-## Similar Projects
+## 1. Key Architecture Findings
 
-| Project | URL | Why Relevant |
-|---------|-----|--------------|
-| django-react-ecommerce | <https://github.com/aishwaryaw/E-commerce-website-using-React-and-Django> | Similar Django + React ecommerce pattern |
-| JustDjango PayPal guide | <https://justdjango.com/blog/django-react-paypal-payments> | PayPal webhook + Django integration |
+- **DRF + React** with separate dev servers (`:8000` backend, `:3000` frontend)
+- **RTK Query** provides caching, dedup, auto-invalidation — less boilerplate than legacy Redux
+- **API versioning**: `/api/v1/` prefix for smooth evolution
+- **CORS**: `django-cors-headers` with explicit whitelist — never wildcard in production
+- **Throttling**: 5-10 req/min on auth endpoints; per-endpoint DRF config
 
----
+## 2. PostgreSQL Performance
 
-## Key Findings
+- **Indexing**: B-Tree (default), GIN (JSONB), functional indexes for wrapped columns
+- **N+1**: `select_related` (FK), `prefetch_related` (M2M); `Prefetch(to_attr=...)` for speed
+- **ArrayAgg**: Single SQL vs N+2 — less memory than `prefetch_related`
+- **Bulk ops**: `bulk_create`/`bulk_update` with `batch_size=500`
+- **Iterator**: `iterator(chunk_size=2000)` uses ~16× less RAM
+- **Pooling**: pgBouncer (`POOL_MODE=transaction`) + `CONN_MAX_AGE=600`
+- **Profiling**: django-silk (dev), slow query log (prod)
 
-### DRF + React Ecommerce Architecture (2026)
-- **Django REST Framework backend** + React/Redux frontend with separate dev servers
-- **Redux Toolkit + RTK Query** provides built-in caching, automatic invalidation — reduces boilerplate vs legacy Redux
-- **SimpleJWT auth**: short-lived access tokens (5-15 min) + long-lived refresh tokens; store access in memory, refresh in httpOnly cookie
-- **CORS**: `django-cors-headers` required; whitelist frontend origins explicitly
-- **Production**: Docker Compose with separate backend/frontend services; shared `.env`
+## 3. Docker & Production Deployment
 
-### PayPal Integration with DRF + React
-- **Modern flow**: PayPal JavaScript SDK (Smart Buttons) on frontend + REST Orders API v2 on backend
-- **Legacy `django-paypal` uses deprecated IPN** — avoid for new projects
-- **Backend**: store credentials in env vars; frontend `@paypal/react-paypal-js` for button rendering
-- **Idempotency**: verify webhook event IDs to prevent duplicate fulfillment
-- **Always verify on server** — never trust client-side payment success signals
+- **Multi-stage builds**: Builder → production copies only site-packages, non-root `django` user
+- **Gunicorn**: `2-4 × CPU cores` workers, `gthread` class, `max-requests=1000`
+- **Nginx**: Rate limiting (10r/s general, 30r/s API), 30d static cache
+- **Services**: PostgreSQL 16-alpine + Redis 7-alpine (256mb) + Nginx 1.25-alpine
+- **Health**: `@never_cache` JSON endpoint; pg_dump backups, 7-day rotation
+- **Monitoring**: Sentry (`traces_sample_rate=0.1`), JSON logging, Docker Swarm/K8s
 
-### SimpleJWT + React Frontend Patterns
-- Axios interceptors attach `Authorization: Bearer` header; auto-refresh on 401
-- **Key settings**: `ROTATE_REFRESH_TOKENS=True`, `BLACKLIST_AFTER_ROTATION=True`
-- Protected routes via React Router guards checking auth state
+## 4. PayPal Integration (REST API v2)
 
----
+- **Flow**: Smart Buttons (`@paypal/react-paypal-js`) → Orders API v2 → webhook confirmation
+- **Server-side price**: Never trust client — compute from catalog
+- **OAuth caching**: In-memory with 60s buffer; `PayPal-Request-Id` UUID for idempotency
+- **Webhooks over IPN**: `PAYMENT.CAPTURE.COMPLETED`, signature verification
+- **PCI DSS**: SAQ A (card data never touches your servers)
+- **2026 Orders v2**: add Level 2/3 purchase data to lower processing costs; `PayPal-Request-Id` idempotency header retained 6-72h; `@paypal/react-paypal-js` v6 ships web-component buttons (`<paypal-button>`)
 
-## Cheatsheets & Quick Reference
+## 5. JWT Authentication
 
-| Topic | Resource | Type |
-|-------|----------|------|
-| DRF Docs | <https://www.django-rest-framework.org> | Docs |
-| SimpleJWT | <https://django-rest-framework-simplejwt.readthedocs.io> | Docs |
-| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2> | API Docs |
+- **SimpleJWT**: Access 5 min, refresh 1 day; `ROTATE_REFRESH_TOKENS=True`, `BLACKLIST_AFTER_ROTATION=True`
+- **Storage**: Access in memory only, refresh in httpOnly/SameSite=Strict cookie
+- **Axios**: Auto 401 → refresh → retry
+- **Rate limit** auth (5-10 req/min); HTTPS; minimal payload
 
----
+## 6. React + Bootstrap
 
-## Best Practices
+- **Components**: Navbar, Card, Button, Modal, Form, Carousel, Alert, Badge, Spinner, Pagination
+- **Best practices**: Tree-shake imports, SCSS `_variables.scss` for theming, lock version
+- **React 2026**: Functional + hooks; custom hooks (useAuth, useCart); `React.lazy()` splitting; feature-based folders
 
-1. **RTK Query for API state** — built-in caching, deduplication, auto-invalidation
-2. **Server-side payment verification** — never trust client-side success signals
-3. **Separate .env per environment** — dev/staging/production credentials isolated
-4. **CORS whitelist** — explicit frontend origins; never wildcard in production
-5. **API versioning** — `/api/v1/` URL prefix for future compatibility
+## 7. Security Essentials
 
----
+- **Django**: SECRET_KEY in env, DEBUG=False, HSTS, X-Frame-Options DENY
+- **PayPal**: Server-side price, idempotency keys, webhook verification
+- **Frontend**: httpOnly cookies (never localStorage), CSP, sanitize UGC
+- **Infra**: Non-root containers, Trivy, secrets via env, SSL, Nginx rate limiting
+- **Deps**: `pip-audit` or Dependabot
 
-## Common Pitfalls
+## 8. Common Pitfalls (Top 8)
 
-| Pitfall | Impact | Avoidance |
-|---------|--------|-----------|
-| Client-side payment verification | Fraud | Always verify on server |
-| Legacy django-paypal | Deprecated IPN | Use PayPal Orders API v2 |
-| Missing CORS config | Frontend can't reach API | `django-cors-headers` with explicit origins |
-| JWT leaks | Account takeover | Access token in memory only; httpOnly refresh cookie |
+| Pitfall | Impact | Solution |
+|---------|--------|----------|
+| Client-side price | Fraud | Server-side catalog pricing |
+| No idempotency | Duplicate charges | `PayPal-Request-Id` UUID |
+| django-paypal (IPN) | Deprecated | Orders API v2 + Webhooks |
+| Missing select_related | N+1 queries | Profiling + Prefetch |
+| Full model serialization | Bloated payloads | `only()`, `defer()`, lean serializers |
+| JWT in localStorage | XSS theft | httpOnly + SameSite=Strict |
+| No connection pooling | Connection exhaustion | pgBouncer + CONN_MAX_AGE |
+| Single Gunicorn worker | Poor throughput | 2-4 × CPU cores gthread |
 
----
+## 9. Related Projects
 
-## Performance
-
-1. **RTK Query caching** — automatic cache invalidation reduces redundant API calls
-2. **Django `select_related`/`prefetch_related`** — prevent N+1 in product listings
-3. **Docker Compose multi-stage builds** — smaller production images
-4. **Gunicorn workers** — `2-4 × CPU cores` for DRF serving
-5. **PostgreSQL connection pooling** — `CONN_MAX_AGE` for persistent connections
-
----
-
-## Security
-
-1. **Server-side payment verification** — never trust client-side signals
-2. **SimpleJWT blacklist** — `BLACKLIST_AFTER_ROTATION=True` for token revocation
-3. **Secure CORS** — explicit origins, never credentials wildcard
-4. **CSRF protection** — ensure `X-CSRFToken` header on mutating requests
-5. **Rate limit auth endpoints** — protect against brute force attempts
-
----
-
-## Related Projects (in workspace)
-
-- **xamehi** — shared Django + React architecture patterns
-- **xamehi.tv** — shared DRF + PayPal integration patterns
+- **xamehi / xamehi.tv** — shared Django + React and PayPal patterns
 - **cookiecutter-django-tailwind** — shared Django/DRF conventions
-- **Django-Scrapy-Selenium** — shared Django + DRF architecture
-- **profile** — shared Django + DRF conventions
+- **Django-Scrapy-Selenium** — shared Django architecture
 
----
 
-## Resources
-
-| Resource | URL | Description |
-|----------|-----|-------------|
-| DRF Docs | <https://www.django-rest-framework.org> | API framework |
-| SimpleJWT | <https://django-rest-framework-simplejwt.readthedocs.io> | JWT auth |
-| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2> | Payment processing |
-| RTK Query | <https://redux-toolkit.js.org/rtk-query/overview> | Data fetching |
-
-### Research Methodology
-- **Web search:** web_search (2026 DRF ecommerce patterns)
-- **Documentation:** web_extract (PayPal, SimpleJWT, DRF docs)
-- **Payment integration research:** PayPal Orders API v2 best practices
-- **Last verified:** 2026-07-16
+| Resource | URL | Domain |
+|----------|-----|--------|
+| DRF Best Practices 2026 | kellton.com/kellton-tech-blog/designing-rest-apis-with-django-rest-api-framework | API design |
+| PostgreSQL Tips for Django | blog.gitguardian.com/10-tips-to-optimize-postgresql-queries-in-your-django-project | DB opt |
+| Production Django + Docker | medium.com/@sizanmahmud08/production-ready-django-with-docker-in-2026 | Deploy |
+| PayPal Django Integration | micropyramid.com/blog/e-commerce-paypal-integration-with-django | Payments |
+| JWT in DRF Complete Guide | medium.com/@onurmaciit/mastering-jwt-authentication-in-django-rest-framework | Auth |
+| Bootstrap in React Guide | mitsoftware.com/en/blog/guide-to-using-bootstrap-in-react-projects | Frontend |

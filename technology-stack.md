@@ -7,7 +7,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 ## Backend
 
 | Technology | Version | Purpose |
-|------------|---------|---------|
+| ------------ | --------- | --------- |
 | Python | 3.10 | Runtime |
 | Django | 3.1 | Web framework |
 | Django REST Framework | — | REST API |
@@ -17,7 +17,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 ## Frontend
 
 | Technology | Version | Purpose |
-|------------|---------|---------|
+| ------------ | --------- | --------- |
 | React | 18.2.0 | UI library |
 | Redux | 4.2.1 | State management |
 | Redux Thunk | 2.4.2 | Async middleware |
@@ -29,7 +29,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 ## Database & Storage
 
 | Technology | Purpose |
-|------------|---------|
+| ------------ | --------- |
 | SQLite | Development database |
 | PostgreSQL | Production database |
 | AWS S3 | File storage |
@@ -38,7 +38,7 @@ Full-stack ecommerce platform with Django REST backend and React/Redux frontend.
 ## Deployment
 
 | Tool | Purpose |
-|------|---------|
+| ------ | --------- |
 | Gunicorn | WSGI server |
 | WhiteNoise | Static files |
 | Heroku | PaaS deployment |

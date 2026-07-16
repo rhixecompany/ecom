@@ -22,7 +22,7 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 ### Languages & Runtimes
 
 | Technology | Version | Usage |
-|---|---|---|
+| --- | --- | --- |
 | Python | ^3.10 | Backend language |
 | JavaScript (ES6+) | — | Frontend language |
 | Node.js | — | JavaScript runtime |
@@ -31,7 +31,7 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 ### Backend Stack
 
 | Category | Technologies |
-|---|---|
+| --- | --- |
 | **Web Framework** | Django (latest) |
 | **API Framework** | Django REST Framework |
 | **Database** | PostgreSQL |
@@ -41,7 +41,7 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 ### Frontend Stack
 
 | Category | Technologies |
-|---|---|
+| --- | --- |
 | **UI Framework** | React ^18.2.0 |
 | **State Management** | Redux ^4.2.1, redux-thunk ^2.4.2 |
 | **Routing** | React Router DOM ^5.2.0 |
@@ -86,7 +86,7 @@ ecom/
 ## Key Scripts
 
 | Command | Description |
-|---|---|
+| --- | --- |
 | `python manage.py runserver` | Django backend server |
 | `python manage.py test` | Run backend tests |
 | `npm start` | React frontend dev server |
@@ -98,7 +98,7 @@ ecom/
 ## API Endpoints
 
 | Route | Purpose |
-|---|---|
+| --- | --- |
 | `/api/v1/` | REST API base URL |
 | `/api/v1/products/` | Product CRUD |
 | `/api/v1/orders/` | Order management |

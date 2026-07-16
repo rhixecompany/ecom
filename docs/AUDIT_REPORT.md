@@ -73,7 +73,7 @@ This audit identified **6 issues** in the codebase, with **3 critical bugs fixed
 ## Code Quality Assessment
 
 | Aspect | Rating | Notes |
-|--------|--------|-------|
+| -------- | -------- | ------- |
 | Documentation | Fair | Basic README, no internal docs |
 | Error Handling | Poor | Many unhandled exceptions |
 | Security | Needs Work | Hardcoded secrets, permissive CORS |

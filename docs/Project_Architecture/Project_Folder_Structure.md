@@ -68,7 +68,7 @@ ecom/
 ## Naming Conventions
 
 | Convention | Pattern | Examples |
-|---|---|---|
+| --- | --- | --- |
 | **Django apps** | lowercase | `base/`, `ecom/` |
 | **React source** | kebab-case | `frontend/src/`, `frontend/src/components/` |
 | **React modules** | lowercase | `actions/`, `constants/`, `reducers/`, `screens/` |
@@ -90,7 +90,7 @@ ecom/
 ## Project Type Indicators
 
 | Indicator | Value |
-|---|---|
+| --- | --- |
 | Has `manage.py` | ✅ Django project |
 | Has `frontend/src/` with React | ✅ React frontend |
 | Has `Pipfile` | ✅ Python Pipenv |

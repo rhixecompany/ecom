@@ -74,7 +74,7 @@ ecom/
 ### Models
 
 | Model | Description |
-|-------|-------------|
+| ------- | ------------- |
 | **Product** | E-commerce products with name, price, description, image, brand, category |
 | **Review** | Product reviews with rating (1-5) and comments |
 | **Order** | Customer orders with payment and delivery status |
@@ -84,7 +84,7 @@ ecom/
 ### API Endpoints
 
 | Endpoint | Method | Description |
-|----------|--------|-------------|
+| ---------- | -------- | ------------- |
 | `/api/products/` | GET, POST | List/create products |
 | `/api/products/<id>/` | GET, PUT, DELETE | Product CRUD |
 | `/api/products/<id>/reviews/` | GET, POST | Product reviews |
@@ -166,7 +166,7 @@ The application uses Redux for centralized state management:
 ### Routing (React Router)
 
 | Route | Component | Description |
-|-------|-----------|-------------|
+| ------- | ----------- | ------------- |
 | `/` | HomeScreen | Homepage with product listings |
 | `/product/:id` | ProductScreen | Product details |
 | `/cart` | CartScreen | Shopping cart |

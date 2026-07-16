@@ -169,3 +169,9 @@ static/
 env/
 frontend/node_modules/
 frontend/build/
+
+# repo-management audit fix
+.env
+.next/
+venv/
+.DS_Store
