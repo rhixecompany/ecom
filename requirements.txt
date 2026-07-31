@@ -36,7 +36,7 @@ jmespath==0.10.0
 lazy-object-proxy==1.4.3
 markupsafe==1.1.1
 mccabe==0.6.1
-pillow==9.0.1
+pillow>=12.3.0
 psycopg2-binary==2.9.3
 pycodestyle==2.8.0
 pyjwt==2.3.0
