@@ -10,26 +10,26 @@ A full-stack ecommerce platform with a Django REST Framework backend and React/R
 
 ### Backend
 
-| Category | Technology |
-|---|---|
-| **Web Framework** | Django (latest) |
-| **API Framework** | Django REST Framework (DRF) |
-| **Language** | Python ^3.10 |
-| **Authentication** | SimpleJWT |
-| **Database** | PostgreSQL |
-| **Serving** | Gunicorn |
+| Category           | Technology                  |
+| ------------------ | --------------------------- |
+| **Web Framework**  | Django (latest)             |
+| **API Framework**  | Django REST Framework (DRF) |
+| **Language**       | Python ^3.10                |
+| **Authentication** | SimpleJWT                   |
+| **Database**       | PostgreSQL                  |
+| **Serving**        | Gunicorn                    |
 
 ### Frontend
 
-| Category | Technology |
-|---|---|
-| **UI Framework** | React ^18.2.0 |
-| **State Management** | Redux ^4.2.1, redux-thunk |
-| **Routing** | React Router DOM ^5.2.0 |
-| **UI Library** | React Bootstrap ^2.8.0, Bootstrap ^5.3.0 |
-| **HTTP Client** | Axios ^1.4.0 |
-| **Payments** | react-paypal-button-v2 |
-| **Build Tool** | Create React App (react-scripts 5.0.1) |
+| Category             | Technology                               |
+| -------------------- | ---------------------------------------- |
+| **UI Framework**     | React ^18.2.0                            |
+| **State Management** | Redux ^4.2.1, redux-thunk                |
+| **Routing**          | React Router DOM ^5.2.0                  |
+| **UI Library**       | React Bootstrap ^2.8.0, Bootstrap ^5.3.0 |
+| **HTTP Client**      | Axios ^1.4.0                             |
+| **Payments**         | react-paypal-button-v2                   |
+| **Build Tool**       | Create React App (react-scripts 5.0.1)   |
 
 ## Architecture
 
@@ -102,12 +102,12 @@ docker compose up -d
 
 ## API Endpoints
 
-| Route | Purpose |
-|---|---|
-| `/api/v1/` | REST API base URL |
+| Route               | Purpose                 |
+| ------------------- | ----------------------- |
+| `/api/v1/`          | REST API base URL       |
 | `/api/v1/products/` | Product CRUD operations |
-| `/api/v1/orders/` | Order management |
-| `/api/v1/users/` | User management |
+| `/api/v1/orders/`   | Order management        |
+| `/api/v1/users/`    | User management         |
 
 ## Key Features
 

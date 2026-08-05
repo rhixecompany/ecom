@@ -10,16 +10,17 @@
 
 ## Similar Projects
 
-| Project | URL | Why Relevant |
-|---------|-----|--------------|
-| django-react-ecommerce | <https://github.com/aishwaryaw/E-commerce-website-using-React-and-Django> | Django + React ecommerce pattern |
-| JustDjango PayPal guide | <https://justdjango.com/blog/django-react-paypal-payments> | PayPal + Django webhook integration |
+| Project                 | URL                                                                       | Why Relevant                        |
+| ----------------------- | ------------------------------------------------------------------------- | ----------------------------------- |
+| django-react-ecommerce  | <https://github.com/aishwaryaw/E-commerce-website-using-React-and-Django> | Django + React ecommerce pattern    |
+| JustDjango PayPal guide | <https://justdjango.com/blog/django-react-paypal-payments>                | PayPal + Django webhook integration |
 
 ---
 
 ## Key Findings
 
 ### DRF + React Ecommerce Architecture (2026)
+
 - **DRF backend** + React/Redux frontend with separate dev servers; proxy API in dev
 - **Redux Toolkit + RTK Query** provides built-in caching and auto-invalidation
 - **SimpleJWT**: short-lived access tokens (5-15 min) + long-lived refresh tokens (memory/httpOnly)
@@ -27,6 +28,7 @@
 - **Docker Compose** with separate backend/frontend services; per-environment `.env`
 
 ### PayPal Integration
+
 - **Modern flow**: PayPal JS SDK (Smart Buttons) frontend + REST Orders API v2 backend
 - Legacy `django-paypal` uses deprecated IPN — avoid for new projects
 - **Always verify on server** — never trust client-side payment signals
@@ -36,11 +38,11 @@
 
 ## Cheatsheets & Quick Reference
 
-| Topic | Resource | Type |
-|-------|----------|------|
-| DRF Docs | <https://www.django-rest-framework.org> | Docs |
-| SimpleJWT | <https://django-rest-framework-simplejwt.readthedocs.io> | Docs |
-| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2> | API Docs |
+| Topic             | Resource                                                 | Type     |
+| ----------------- | -------------------------------------------------------- | -------- |
+| DRF Docs          | <https://www.django-rest-framework.org>                  | Docs     |
+| SimpleJWT         | <https://django-rest-framework-simplejwt.readthedocs.io> | Docs     |
+| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2>        | API Docs |
 
 ---
 
@@ -56,12 +58,12 @@
 
 ## Common Pitfalls
 
-| Pitfall | Impact | Avoidance |
-|---------|--------|-----------|
-| Client-side payment verification | Fraud | Always verify on server |
-| Legacy django-paypal | Deprecated IPN | Use PayPal Orders API v2 |
-| Missing CORS config | Frontend can't reach API | `django-cors-headers` with explicit origins |
-| JWT leaks | Account takeover | Access token in memory only; httpOnly refresh cookie |
+| Pitfall                          | Impact                   | Avoidance                                            |
+| -------------------------------- | ------------------------ | ---------------------------------------------------- |
+| Client-side payment verification | Fraud                    | Always verify on server                              |
+| Legacy django-paypal             | Deprecated IPN           | Use PayPal Orders API v2                             |
+| Missing CORS config              | Frontend can't reach API | `django-cors-headers` with explicit origins          |
+| JWT leaks                        | Account takeover         | Access token in memory only; httpOnly refresh cookie |
 
 ---
 
@@ -107,14 +109,15 @@
 
 ## Resources
 
-| Resource | URL | Description |
-|----------|-----|-------------|
-| DRF Docs | <https://www.django-rest-framework.org> | API framework |
-| SimpleJWT | <https://django-rest-framework-simplejwt.readthedocs.io> | JWT auth |
-| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2> | Payment processing |
-| RTK Query | <https://redux-toolkit.js.org/rtk-query/overview> | Data fetching |
+| Resource          | URL                                                      | Description        |
+| ----------------- | -------------------------------------------------------- | ------------------ |
+| DRF Docs          | <https://www.django-rest-framework.org>                  | API framework      |
+| SimpleJWT         | <https://django-rest-framework-simplejwt.readthedocs.io> | JWT auth           |
+| PayPal Orders API | <https://developer.paypal.com/docs/api/orders/v2>        | Payment processing |
+| RTK Query         | <https://redux-toolkit.js.org/rtk-query/overview>        | Data fetching      |
 
 ### Research Methodology
+
 - **Web search:** web_search (2026 DRF ecommerce patterns, PayPal best practices)
 - **Documentation:** web_extract (PayPal, SimpleJWT, DRF docs)
 - **Last verified:** 2026-07-28

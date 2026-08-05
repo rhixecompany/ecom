@@ -73,28 +73,28 @@ ecom/
 
 ### Models
 
-| Model | Description |
-|-------|-------------|
-| **Product** | E-commerce products with name, price, description, image, brand, category |
-| **Review** | Product reviews with rating (1-5) and comments |
-| **Order** | Customer orders with payment and delivery status |
-| **OrderItem** | Individual items within an order |
-| **ShippingAddress** | Delivery address for orders |
+| Model               | Description                                                               |
+| ------------------- | ------------------------------------------------------------------------- |
+| **Product**         | E-commerce products with name, price, description, image, brand, category |
+| **Review**          | Product reviews with rating (1-5) and comments                            |
+| **Order**           | Customer orders with payment and delivery status                          |
+| **OrderItem**       | Individual items within an order                                          |
+| **ShippingAddress** | Delivery address for orders                                               |
 
 ### API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/products/` | GET, POST | List/create products |
-| `/api/products/<id>/` | GET, PUT, DELETE | Product CRUD |
-| `/api/products/<id>/reviews/` | GET, POST | Product reviews |
-| `/api/orders/` | GET, POST | List/create orders |
-| `/api/orders/<id>/` | GET, PUT | Order details |
-| `/api/orders/<id>/pay/` | PUT | Mark order as paid |
-| `/api/orders/<id>/deliver/` | PUT | Mark order as delivered |
-| `/api/users/` | GET, POST | User management |
-| `/api/users/login/` | POST | User authentication |
-| `/api/users/profile/` | GET, PUT | User profile |
+| Endpoint                      | Method           | Description             |
+| ----------------------------- | ---------------- | ----------------------- |
+| `/api/products/`              | GET, POST        | List/create products    |
+| `/api/products/<id>/`         | GET, PUT, DELETE | Product CRUD            |
+| `/api/products/<id>/reviews/` | GET, POST        | Product reviews         |
+| `/api/orders/`                | GET, POST        | List/create orders      |
+| `/api/orders/<id>/`           | GET, PUT         | Order details           |
+| `/api/orders/<id>/pay/`       | PUT              | Mark order as paid      |
+| `/api/orders/<id>/deliver/`   | PUT              | Mark order as delivered |
+| `/api/users/`                 | GET, POST        | User management         |
+| `/api/users/login/`           | POST             | User authentication     |
+| `/api/users/profile/`         | GET, PUT         | User profile            |
 
 ### Authentication
 
@@ -165,17 +165,17 @@ The application uses Redux for centralized state management:
 
 ### Routing (React Router)
 
-| Route | Component | Description |
-|-------|-----------|-------------|
-| `/` | HomeScreen | Homepage with product listings |
-| `/product/:id` | ProductScreen | Product details |
-| `/cart` | CartScreen | Shopping cart |
-| `/login` | LoginScreen | User login |
-| `/register` | RegisterScreen | User registration |
-| `/profile` | ProfileScreen | User profile |
-| `/admin/orderlist` | OrderListScreen | Admin order management |
-| `/admin/productlist` | ProductListScreen | Admin product management |
-| `/admin/userlist` | UserListScreen | Admin user management |
+| Route                | Component         | Description                    |
+| -------------------- | ----------------- | ------------------------------ |
+| `/`                  | HomeScreen        | Homepage with product listings |
+| `/product/:id`       | ProductScreen     | Product details                |
+| `/cart`              | CartScreen        | Shopping cart                  |
+| `/login`             | LoginScreen       | User login                     |
+| `/register`          | RegisterScreen    | User registration              |
+| `/profile`           | ProfileScreen     | User profile                   |
+| `/admin/orderlist`   | OrderListScreen   | Admin order management         |
+| `/admin/productlist` | ProductListScreen | Admin product management       |
+| `/admin/userlist`    | UserListScreen    | Admin user management          |
 
 ## Security Considerations
 

@@ -10,6 +10,7 @@
 
 **Pattern:** Dual-stack — Separate Django REST backend + React/Redux frontend
 **Structure:**
+
 ```
 ecom/
 ├── backend/      # Django 3.1 + DRF
@@ -20,24 +21,25 @@ ecom/
 
 ## Backend Stack (`backend/`)
 
-| Category | Technology | Version | License |
-|----------|-----------|---------|---------|
-| **Framework** | Django | 3.1.14 | BSD |
-| **API** | Django REST Framework | 3.13.1 | MIT |
-| **Language** | Python | 3.10 | PSF |
-| **Database** | PostgreSQL | Latest | PostgreSQL |
-| **Auth** | SimpleJWT | 5.2.0 | MIT |
-| **CORS** | django-cors-headers | 3.11.0 | MIT |
-| **Admin** | django-ckeditor | 6.3.2 | BSD |
-| **Forms** | django-crispy-forms | 1.14.0 | MIT |
-| **Filters** | django-filter | 21.1 | MIT |
-| **Static Files** | WhiteNoise | 5.1.0 | MIT |
-| **Storage** | django-storages + boto3/S3 | 1.12.3 / 1.14.31 | BSD |
-| **Payments** | PayPal SDK | Latest | - |
-| **WSGI** | Gunicorn | 20.1.0 | MIT |
-| **Env** | python-dotenv | 0.20.0 | BSD |
+| Category         | Technology                 | Version          | License    |
+| ---------------- | -------------------------- | ---------------- | ---------- |
+| **Framework**    | Django                     | 3.1.14           | BSD        |
+| **API**          | Django REST Framework      | 3.13.1           | MIT        |
+| **Language**     | Python                     | 3.10             | PSF        |
+| **Database**     | PostgreSQL                 | Latest           | PostgreSQL |
+| **Auth**         | SimpleJWT                  | 5.2.0            | MIT        |
+| **CORS**         | django-cors-headers        | 3.11.0           | MIT        |
+| **Admin**        | django-ckeditor            | 6.3.2            | BSD        |
+| **Forms**        | django-crispy-forms        | 1.14.0           | MIT        |
+| **Filters**      | django-filter              | 21.1             | MIT        |
+| **Static Files** | WhiteNoise                 | 5.1.0            | MIT        |
+| **Storage**      | django-storages + boto3/S3 | 1.12.3 / 1.14.31 | BSD        |
+| **Payments**     | PayPal SDK                 | Latest           | -          |
+| **WSGI**         | Gunicorn                   | 20.1.0           | MIT        |
+| **Env**          | python-dotenv              | 0.20.0           | BSD        |
 
 ### Key Dependencies (`requirements.txt` / `Pipfile`)
+
 ```text
 Django==3.1.14
 djangorestframework==3.13.1
@@ -60,16 +62,17 @@ paypalrestsdk==1.13.1
 
 ## Frontend Stack (`frontend/`)
 
-| Category | Technology | Version | License |
-|----------|-----------|---------|---------|
-| **Framework** | React | 18.x | MIT |
-| **State** | Redux Toolkit | Latest | MIT |
-| **HTTP** | Axios | Latest | MIT |
-| **UI** | Bootstrap / Custom CSS | Latest | MIT |
-| **Testing** | @testing-library/react | Latest | MIT |
-| **Build** | Create React App (react-scripts) | 5.x | MIT |
+| Category      | Technology                       | Version | License |
+| ------------- | -------------------------------- | ------- | ------- |
+| **Framework** | React                            | 18.x    | MIT     |
+| **State**     | Redux Toolkit                    | Latest  | MIT     |
+| **HTTP**      | Axios                            | Latest  | MIT     |
+| **UI**        | Bootstrap / Custom CSS           | Latest  | MIT     |
+| **Testing**   | @testing-library/react           | Latest  | MIT     |
+| **Build**     | Create React App (react-scripts) | 5.x     | MIT     |
 
 ### Key Dependencies (`frontend/package.json`)
+
 ```json
 {
   "dependencies": {
@@ -176,6 +179,7 @@ ecom/
 ## Development Workflow
 
 ### Backend
+
 ```bash
 cd backend
 pip install -r requirements.txt
@@ -185,6 +189,7 @@ python manage.py runserver  # :8000
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm install
@@ -192,6 +197,7 @@ npm start  # :3000, proxies API to :8000
 ```
 
 ### Full Stack
+
 ```bash
 # Terminal 1
 cd backend && python manage.py runserver
@@ -208,11 +214,13 @@ docker-compose up -d
 ## Settings Configuration
 
 ### Django Settings (`config/settings/`)
+
 - **base.py** — Shared config
 - **local.py** — Debug=True, SQLite, console email
 - **production.py** — Debug=False, PostgreSQL, S3, Gunicorn
 
 ### Environment Variables (`.env`)
+
 ```env
 SECRET_KEY=...
 DEBUG=False
@@ -230,6 +238,7 @@ AWS_STORAGE_BUCKET_NAME=...
 ## Deployment
 
 ### Production Stack
+
 ```
 Nginx (reverse proxy, SSL)
     ├─▶ Gunicorn :8000 (Django)
@@ -237,6 +246,7 @@ Nginx (reverse proxy, SSL)
 ```
 
 ### Docker Compose
+
 ```yaml
 services:
   backend:
@@ -244,16 +254,16 @@ services:
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes: [...]
     environment: [...]
-  
+
   frontend:
     build: ./frontend
     command: npm run build && serve -s build
     ports: ["3000:3000"]
-  
+
   db:
     image: postgres:15
     volumes: [...]
-  
+
   redis:
     image: redis:7
 ```
@@ -262,13 +272,13 @@ services:
 
 ## Quality & Testing
 
-| Layer | Tool | Command |
-|-------|------|---------|
-| **Python Lint** | flake8/pylint (legacy) | `flake8 backend/` |
-| **Python Type** | mypy (not configured) | - |
-| **Python Test** | pytest / Django test | `python manage.py test` |
-| **JS Lint** | ESLect (CRA default) | `npm run lint` |
-| **JS Test** | Jest (CRA default) | `npm test` |
+| Layer           | Tool                   | Command                 |
+| --------------- | ---------------------- | ----------------------- |
+| **Python Lint** | flake8/pylint (legacy) | `flake8 backend/`       |
+| **Python Type** | mypy (not configured)  | -                       |
+| **Python Test** | pytest / Django test   | `python manage.py test` |
+| **JS Lint**     | ESLect (CRA default)   | `npm run lint`          |
+| **JS Test**     | Jest (CRA default)     | `npm test`              |
 
 ---
 
@@ -284,15 +294,16 @@ services:
 
 ## Known Issues & Migration Path
 
-| Issue | Impact | Resolution |
-|-------|--------|------------|
-| Django 3.1 EOL (April 2022) | Security, no updates | Upgrade to Django 5.x |
-| Python 3.10 EOL (Oct 2026) | End of support | Upgrade to 3.12+ |
-| CRA deprecated | No updates, slow | Migrate to Vite/Next.js |
-| Redux Toolkit v1 | Old patterns | Upgrade to v2 |
-| No TypeScript | No type safety | Add TypeScript |
+| Issue                       | Impact               | Resolution              |
+| --------------------------- | -------------------- | ----------------------- |
+| Django 3.1 EOL (April 2022) | Security, no updates | Upgrade to Django 5.x   |
+| Python 3.10 EOL (Oct 2026)  | End of support       | Upgrade to 3.12+        |
+| CRA deprecated              | No updates, slow     | Migrate to Vite/Next.js |
+| Redux Toolkit v1            | Old patterns         | Upgrade to v2           |
+| No TypeScript               | No type safety       | Add TypeScript          |
 
 **Recommended Migration:**
+
 1. Upgrade Django → 5.x, Python → 3.12
 2. Replace CRA frontend with Next.js 15 (App Router)
 3. Add TypeScript across stack
@@ -303,14 +314,14 @@ services:
 
 ## License Summary
 
-| Component | License |
-|-----------|---------|
-| Django/DRF | BSD / MIT |
-| React/Redux | MIT |
-| Bootstrap | MIT |
-| PayPal SDK | Proprietary (PayPal) |
-| All others | MIT / BSD |
+| Component   | License              |
+| ----------- | -------------------- |
+| Django/DRF  | BSD / MIT            |
+| React/Redux | MIT                  |
+| Bootstrap   | MIT                  |
+| PayPal SDK  | Proprietary (PayPal) |
+| All others  | MIT / BSD            |
 
 ---
 
-*Generated by Hermes Agent Technology Stack Blueprint Generator*
+_Generated by Hermes Agent Technology Stack Blueprint Generator_

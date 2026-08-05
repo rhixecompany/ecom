@@ -10,10 +10,10 @@
 
 ## Architecture
 
-| Property | Value |
-|----------|-------|
-| **Type** | Dual-stack ecommerce platform |
-| **Pattern** | DRF backend + React/Redux frontend, separate dev servers |
+| Property      | Value                                                                  |
+| ------------- | ---------------------------------------------------------------------- |
+| **Type**      | Dual-stack ecommerce platform                                          |
+| **Pattern**   | DRF backend + React/Redux frontend, separate dev servers               |
 | **Reference** | [Workflow Analysis](../docs/Project_Architecture/Workflow_Analysis.md) |
 
 Django REST Framework + React/Redux + PayPal. Full ecommerce stack with separate backend (`backend/`) and frontend (`frontend/`) directories.
@@ -22,13 +22,13 @@ Django REST Framework + React/Redux + PayPal. Full ecommerce stack with separate
 
 ## Technology Stack
 
-| Layer | Technology |
-|-------|------------|
-| **Backend** | Django 3.1, DRF, Python 3.10+ |
-| **Frontend** | React + Redux Toolkit |
-| **Database** | PostgreSQL |
-| **Payments** | PayPal |
-| **Infra** | Docker Compose |
+| Layer        | Technology                    |
+| ------------ | ----------------------------- |
+| **Backend**  | Django 3.1, DRF, Python 3.10+ |
+| **Frontend** | React + Redux Toolkit         |
+| **Database** | PostgreSQL                    |
+| **Payments** | PayPal                        |
+| **Infra**    | Docker Compose                |
 
 ---
 
@@ -68,11 +68,11 @@ npm test
 
 ## Issues
 
-| Issue | Severity | Notes |
-|-------|----------|-------|
-| Django 3.1 | CRITICAL | EOL since 2021, no security patches |
-| No CI/CD | HIGH | No GitHub Actions workflow |
-| Legacy PayPal SDK | MEDIUM | Should upgrade to latest |
+| Issue             | Severity | Notes                               |
+| ----------------- | -------- | ----------------------------------- |
+| Django 3.1        | CRITICAL | EOL since 2021, no security patches |
+| No CI/CD          | HIGH     | No GitHub Actions workflow          |
+| Legacy PayPal SDK | MEDIUM   | Should upgrade to latest            |
 
 ---
 

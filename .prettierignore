@@ -1,0 +1,8 @@
+node_modules
+hermes-profiles
+.next
+dist
+build
+coverage
+*.lock
+*.min.js

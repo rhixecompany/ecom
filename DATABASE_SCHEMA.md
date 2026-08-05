@@ -2,9 +2,9 @@
 
 ## Tables
 
-| Table | Description | Key Fields |
-|-------|-------------|------------|
-| (varies) | Project-specific | (varies) |
+| Table    | Description      | Key Fields |
+| -------- | ---------------- | ---------- |
+| (varies) | Project-specific | (varies)   |
 
 ## Indexes
 

@@ -21,11 +21,7 @@ function UserEditScreen({ match, history }) {
   const { error, loading, user } = userDetails;
 
   const userUpdate = useSelector((state) => state.userUpdate);
-  const {
-    error: errorUpdate,
-    loading: loadingUpdate,
-    success: successUpdate,
-  } = userUpdate;
+  const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = userUpdate;
 
   useEffect(() => {
     if (successUpdate) {

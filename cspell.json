@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [],
+  "ignoreWords": [],
+  "flagWords": [],
+  "dictionaries": ["python", "bash", "typescript", "css", "html", "markdown"],
+  "ignorePaths": [
+    "node_modules",
+    "myvenv",
+    ".git",
+    "**/__pycache__/**",
+    "**/build/**",
+    "**/dist/**",
+    "*.{png,jpg,jpeg,gif,svg,ico}",
+    "projects/**"
+  ]
+}

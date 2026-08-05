@@ -2,10 +2,10 @@
 
 ## Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | / | Main application entry |
-| POST | /api/* | API operations |
+| Method | Endpoint | Description            |
+| ------ | -------- | ---------------------- |
+| GET    | /        | Main application entry |
+| POST   | /api/*   | API operations         |
 
 ## Authentication
 

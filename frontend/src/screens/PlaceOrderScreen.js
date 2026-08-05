@@ -15,17 +15,11 @@ function PlaceOrderScreen({ history }) {
 
   const cart = useSelector((state) => state.cart);
 
-  cart.itemsPrice = cart.cartItems
-    .reduce((acc, item) => acc + item.price * item.qty, 0)
-    .toFixed(2);
+  cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
   cart.shippingPrice = (cart.itemsPrice > 100 ? 0 : 10).toFixed(2);
   cart.taxPrice = Number(0.082 * cart.itemsPrice).toFixed(2);
 
-  cart.totalPrice = (
-    Number(cart.itemsPrice) +
-    Number(cart.shippingPrice) +
-    Number(cart.taxPrice)
-  ).toFixed(2);
+  cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2);
 
   if (!cart.paymentMethod) {
     history.push("/payment");
@@ -36,7 +30,6 @@ function PlaceOrderScreen({ history }) {
       history.push(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
-    // eslint-disable-next-line
   }, [success, history, dispatch]);
 
   const placeOrder = () => {
@@ -49,7 +42,7 @@ function PlaceOrderScreen({ history }) {
         shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
-      })
+      }),
     );
   };
 
@@ -89,23 +82,15 @@ function PlaceOrderScreen({ history }) {
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
+                          <Image src={item.image} alt={item.name} fluid rounded />
                         </Col>
 
                         <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
+                          <Link to={`/product/${item.product}`}>{item.name}</Link>
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X ${item.price} = $
-                          {(item.qty * item.price).toFixed(2)}
+                          {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -151,17 +136,10 @@ function PlaceOrderScreen({ history }) {
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
-                {error && <Message variant="danger">{error}</Message>}
-              </ListGroup.Item>
+              <ListGroup.Item>{error && <Message variant="danger">{error}</Message>}</ListGroup.Item>
 
               <ListGroup.Item>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrder}
-                >
+                <Button type="button" className="btn-block" disabled={cart.cartItems === 0} onClick={placeOrder}>
                   Place Order
                 </Button>
               </ListGroup.Item>

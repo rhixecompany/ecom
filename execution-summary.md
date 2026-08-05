@@ -10,15 +10,15 @@
 
 ## Results
 
-| Generator | Status | Notes |
-|-----------|--------|-------|
-| technology-stack | ✅ PASS | Stack detected and documented |
-| folder-structure | ✅ PASS | Structure mapped |
-| architecture | ✅ PASS | Architecture documented |
-| workflow-analysis | ✅ PASS | Development workflow defined |
-| code-exemplars | ✅ PASS | Code examples prepared |
-| copilot-instructions | ✅ PASS | Instructions documented |
-| readme | ✅ PASS | README generated |
-| MCP generators | ✅ PASS | python-mcp-server-generator.prompt.md |
+| Generator            | Status  | Notes                                 |
+| -------------------- | ------- | ------------------------------------- |
+| technology-stack     | ✅ PASS | Stack detected and documented         |
+| folder-structure     | ✅ PASS | Structure mapped                      |
+| architecture         | ✅ PASS | Architecture documented               |
+| workflow-analysis    | ✅ PASS | Development workflow defined          |
+| code-exemplars       | ✅ PASS | Code examples prepared                |
+| copilot-instructions | ✅ PASS | Instructions documented               |
+| readme               | ✅ PASS | README generated                      |
+| MCP generators       | ✅ PASS | python-mcp-server-generator.prompt.md |
 
 ## Overall: ✅ PASS

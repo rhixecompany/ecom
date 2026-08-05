@@ -72,13 +72,13 @@ This audit identified **6 issues** in the codebase, with **3 critical bugs fixed
 
 ## Code Quality Assessment
 
-| Aspect | Rating | Notes |
-|--------|--------|-------|
-| Documentation | Fair | Basic README, no internal docs |
-| Error Handling | Poor | Many unhandled exceptions |
-| Security | Needs Work | Hardcoded secrets, permissive CORS |
-| Code Structure | Good | Clean separation of concerns |
-| API Design | Good | RESTful patterns followed |
+| Aspect         | Rating     | Notes                              |
+| -------------- | ---------- | ---------------------------------- |
+| Documentation  | Fair       | Basic README, no internal docs     |
+| Error Handling | Poor       | Many unhandled exceptions          |
+| Security       | Needs Work | Hardcoded secrets, permissive CORS |
+| Code Structure | Good       | Clean separation of concerns       |
+| API Design     | Good       | RESTful patterns followed          |
 
 ## Recommendations Summary
 
@@ -106,8 +106,9 @@ This audit identified **6 issues** in the codebase, with **3 critical bugs fixed
 
 - `base/models.py` - Database models
 - `base/views/product_views.py` - Product API endpoints
-- `base/views/order_views.py` - Order API endpoints  
+- `base/views/order_views.py` - Order API endpoints
 - `ecom/settings.py` - Django configuration
 
 ---
-*Audit completed on branch `audit/docs-20260515`*
+
+_Audit completed on branch `audit/docs-20260515`_

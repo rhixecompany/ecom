@@ -5,15 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import {
-  getOrderDetails,
-  payOrder,
-  deliverOrder,
-} from "../actions/orderActions";
-import {
-  ORDER_PAY_RESET,
-  ORDER_DELIVER_RESET,
-} from "../constants/orderConstants";
+import { getOrderDetails, payOrder, deliverOrder } from "../actions/orderActions";
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from "../constants/orderConstants";
 
 function OrderScreen({ match, history }) {
   const orderId = match.params.id;
@@ -34,9 +27,7 @@ function OrderScreen({ match, history }) {
   const { userInfo } = userLogin;
 
   if (!loading && !error) {
-    order.itemsPrice = order.orderItems
-      .reduce((acc, item) => acc + item.price * item.qty, 0)
-      .toFixed(2);
+    order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
   }
 
   const addPayPalScript = () => {
@@ -56,12 +47,7 @@ function OrderScreen({ match, history }) {
       history.push("/login");
     }
 
-    if (
-      !order ||
-      successPay ||
-      order._id !== Number(orderId) ||
-      successDeliver
-    ) {
+    if (!order || successPay || order._id !== Number(orderId) || successDeliver) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
 
@@ -111,9 +97,7 @@ function OrderScreen({ match, history }) {
               </p>
 
               {order.isDelivered ? (
-                <Message variant="success">
-                  Delivered on {order.deliveredAt}
-                </Message>
+                <Message variant="success">Delivered on {order.deliveredAt}</Message>
               ) : (
                 <Message variant="warning">Not Delivered</Message>
               )}
@@ -142,23 +126,15 @@ function OrderScreen({ match, history }) {
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
+                          <Image src={item.image} alt={item.name} fluid rounded />
                         </Col>
 
                         <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
+                          <Link to={`/product/${item.product}`}>{item.name}</Link>
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X ${item.price} = $
-                          {(item.qty * item.price).toFixed(2)}
+                          {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -211,29 +187,19 @@ function OrderScreen({ match, history }) {
                   {!sdkReady ? (
                     <Loader />
                   ) : (
-                    <PayPalButton
-                      amount={order.totalPrice}
-                      onSuccess={successPaymentHandler}
-                    />
+                    <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler} />
                   )}
                 </ListGroup.Item>
               )}
             </ListGroup>
             {loadingDeliver && <Loader />}
-            {userInfo &&
-              userInfo.isAdmin &&
-              order.isPaid &&
-              !order.isDelivered && (
-                <ListGroup.Item>
-                  <Button
-                    type="button"
-                    className="btn btn-block"
-                    onClick={deliverHandler}
-                  >
-                    Mark As Delivered
-                  </Button>
-                </ListGroup.Item>
-              )}
+            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+              <ListGroup.Item>
+                <Button type="button" className="btn btn-block" onClick={deliverHandler}>
+                  Mark As Delivered
+                </Button>
+              </ListGroup.Item>
+            )}
           </Card>
         </Col>
       </Row>

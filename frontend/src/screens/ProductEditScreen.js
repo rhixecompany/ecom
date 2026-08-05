@@ -27,11 +27,7 @@ function ProductEditScreen({ match, history }) {
   const { error, loading, product } = productDetails;
 
   const productUpdate = useSelector((state) => state.productUpdate);
-  const {
-    error: errorUpdate,
-    loading: loadingUpdate,
-    success: successUpdate,
-  } = productUpdate;
+  const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = productUpdate;
 
   useEffect(() => {
     if (successUpdate) {
@@ -64,7 +60,7 @@ function ProductEditScreen({ match, history }) {
         category,
         countInStock,
         description,
-      })
+      }),
     );
   };
 
@@ -84,11 +80,7 @@ function ProductEditScreen({ match, history }) {
         },
       };
 
-      const { data } = await axios.post(
-        "/api/products/upload/",
-        formData,
-        config
-      );
+      const { data } = await axios.post("/api/products/upload/", formData, config);
 
       setImage(data);
       setUploading(false);
@@ -139,11 +131,7 @@ function ProductEditScreen({ match, history }) {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.Control
-                label="Choose File"
-                onChange={uploadFileHandler}
-                type="file"
-              ></Form.Control>
+              <Form.Control label="Choose File" onChange={uploadFileHandler} type="file"></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
 
@@ -187,11 +175,7 @@ function ProductEditScreen({ match, history }) {
               ></Form.Control>
             </Form.Group>
 
-            <Button
-              type="submit"
-              variant="primary"
-              style={{ marginTop: "1rem" }}
-            >
+            <Button type="submit" variant="primary" style={{ marginTop: "1rem" }}>
               Update
             </Button>
           </Form>

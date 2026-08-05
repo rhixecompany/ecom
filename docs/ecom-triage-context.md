@@ -14,9 +14,9 @@ docx package). This session added the missing CODE_OF_CONDUCT.md.
 
 ## Issues Found & Fixed
 
-| # | Issue | Action | Commit |
-|---|-------|--------|--------|
-| 1 | `CODE_OF_CONDUCT.md` present on disk but untracked | Staged and committed | `03d66ac` |
+| #   | Issue                                              | Action               | Commit    |
+| --- | -------------------------------------------------- | -------------------- | --------- |
+| 1   | `CODE_OF_CONDUCT.md` present on disk but untracked | Staged and committed | `03d66ac` |
 
 ## Final State
 

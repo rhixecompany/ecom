@@ -173,3 +173,9 @@ frontend/build/
 .env
 .DS_Store
 .next/
+
+# Tooling (appended)
+.venv/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/

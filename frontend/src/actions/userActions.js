@@ -40,11 +40,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      "/api/users/login/",
-      { username: email, password: password },
-      config
-    );
+    const { data } = await axios.post("/api/users/login/", { username: email, password: password }, config);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -55,10 +51,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -83,11 +76,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      "/api/users/register/",
-      { name: name, email: email, password: password },
-      config
-    );
+    const { data } = await axios.post("/api/users/register/", { name: name, email: email, password: password }, config);
 
     dispatch({
       type: USER_REGISTER_SUCCESS,
@@ -103,10 +92,7 @@ export const register = (name, email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -137,10 +123,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -162,11 +145,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/users/profile/update/`,
-      user,
-      config
-    );
+    const { data } = await axios.put(`/api/users/profile/update/`, user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -182,10 +161,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -216,10 +192,7 @@ export const listUsers = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_LIST_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -250,10 +223,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_DELETE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -275,11 +245,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/users/update/${user._id}/`,
-      user,
-      config
-    );
+    const { data } = await axios.put(`/api/users/update/${user._id}/`, user, config);
 
     dispatch({
       type: USER_UPDATE_SUCCESS,
@@ -292,10 +258,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };

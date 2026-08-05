@@ -1,6 +1,6 @@
 # The Story of ecom
 
-*The ecommerce platform that's still running Django 3.1*
+_The ecommerce platform that's still running Django 3.1_
 
 ---
 
@@ -40,12 +40,14 @@ psycopg2-binary==2.9.3
 ```
 
 **What was good:**
+
 - Django 3.1: async views (experimental), JSONField, `StrEnum`/`IntEnum` field choices
 - DRF 3.13: solid, stable
 - React 17: new JSX transform, no event pooling
 - Redux Toolkit: opinionated, less boilerplate
 
 **What aged poorly:**
+
 - Django 3.1 → 3.2 → 4.0 → 4.1 → 4.2 → 5.0 (each with breaking changes)
 - React 17 → 18 (concurrent features, automatic batching)
 - Redux Toolkit 1.x → 2.x (TypeScript improvements)
@@ -88,6 +90,7 @@ Frontend: npm start                       # Port 3000
 ```
 
 **CORS config:**
+
 ```python
 # settings/base.py
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
@@ -95,6 +98,7 @@ CORS_ALLOW_CREDENTIALS = True
 ```
 
 **Proxy in development:**
+
 ```json
 // frontend/package.json
 "proxy": "http://localhost:8000"
@@ -106,21 +110,23 @@ CORS_ALLOW_CREDENTIALS = True
 
 ## Chapter 4: The Upgrade That Never Happened
 
-| Version | Released | EOL | Status |
-|---------|----------|-----|--------|
-| Django 3.1 | Aug 2020 | Dec 2021 | **RUNNING** |
-| Django 3.2 LTS | Apr 2021 | Apr 2024 | Missed |
-| Django 4.2 LTS | Apr 2023 | Apr 2026 | Available |
-| Django 5.0 | Dec 2023 | Aug 2024 | Available |
-| Django 5.1 | Aug 2024 | Apr 2025 | Current |
+| Version        | Released | EOL      | Status      |
+| -------------- | -------- | -------- | ----------- |
+| Django 3.1     | Aug 2020 | Dec 2021 | **RUNNING** |
+| Django 3.2 LTS | Apr 2021 | Apr 2024 | Missed      |
+| Django 4.2 LTS | Apr 2023 | Apr 2026 | Available   |
+| Django 5.0     | Dec 2023 | Aug 2024 | Available   |
+| Django 5.1     | Aug 2024 | Apr 2025 | Current     |
 
 **Migration path blocked by:**
+
 1. `django-filter` 21.x → 23.x (breaking FilterSet changes)
 2. `djangorestframework-simplejwt` 5.x → 6.x (token blacklist changes)
 3. `django-cors-headers` 3.x → 4.x (CORS_ALLOWED_ORIGINS format)
 4. Python 3.10+ required for Django 4.2+
 
 **Frontend migration blocked by:**
+
 1. React 17 → 18 (concurrent features, `createRoot`)
 2. Redux Toolkit 1.x → 2.x (TypeScript, `configureStore` changes)
 3. Webpack 5 (CRA 5) or migrate to Vite
@@ -131,17 +137,19 @@ CORS_ALLOW_CREDENTIALS = True
 
 July 2025 workspace review:
 
-| Project | Stack | Status |
-|---------|-------|--------|
-| `ecom` | Django 3.1 + React 17 | **Archive candidate** |
-| `rhixecompany-comics` | Django 4.x + Next.js 16 | **Survivor** |
+| Project               | Stack                   | Status                |
+| --------------------- | ----------------------- | --------------------- |
+| `ecom`                | Django 3.1 + React 17   | **Archive candidate** |
+| `rhixecompany-comics` | Django 4.x + Next.js 16 | **Survivor**          |
 
 **ecom contributes to the survivor:**
+
 - PayPal integration patterns → `rhixecompany-comics`
 - Product/order models → adapted for comics marketplace
 - React component patterns (forms, tables) → Next.js components
 
 **What gets archived:**
+
 - Django 3.1 codebase (security liability)
 - React 17 + CRA frontend (deprecated)
 - Separate frontend/backend repos (consolidated in Next.js)
@@ -151,6 +159,7 @@ July 2025 workspace review:
 ## Chapter 6: The Security Debt
 
 **Running Django 3.1 in 2025 means:**
+
 - No security patches for 3.5 years
 - CVE-2022-28346 (password reset token leakage) — unpatched
 - CVE-2022-34265 (SQL injection in `Trunc`/`Extract`) — unpatched
@@ -158,6 +167,7 @@ July 2025 workspace review:
 - CVE-2023-31047 (path traversal in `FileField`) — unpatched
 
 **Mitigations in place:**
+
 - WAF (Cloudflare) blocking known exploit patterns
 - No public admin (`/admin/` IP-restricted)
 - Rate limiting on auth endpoints
@@ -179,5 +189,5 @@ The code taught a team how to build ecommerce. The patterns live on. The version
 
 ---
 
-*Written by the workspace chronicler, July 25, 2025.  
-Filed at `projects/ecom/THE_STORY_OF_THIS_REPO.md`.*
+_Written by the workspace chronicler, July 25, 2025.  
+Filed at `projects/ecom/THE_STORY_OF_THIS_REPO.md`._
