@@ -192,8 +192,8 @@ python manage.py runserver  # :8000
 
 ```bash
 cd frontend
-npm install
-npm start  # :3000, proxies API to :8000
+bun install
+bun run start  # :3000, proxies API to :8000
 ```
 
 ### Full Stack
@@ -203,7 +203,7 @@ npm start  # :3000, proxies API to :8000
 cd backend && python manage.py runserver
 
 # Terminal 2
-cd frontend && npm start
+cd frontend && bun run start
 
 # Or Docker
 docker-compose up -d
@@ -257,7 +257,7 @@ services:
 
   frontend:
     build: ./frontend
-    command: npm run build && serve -s build
+    command: bun run build && serve -s build
     ports: ["3000:3000"]
 
   db:
@@ -277,8 +277,8 @@ services:
 | **Python Lint** | flake8/pylint (legacy) | `flake8 backend/`       |
 | **Python Type** | mypy (not configured)  | -                       |
 | **Python Test** | pytest / Django test   | `python manage.py test` |
-| **JS Lint**     | ESLect (CRA default)   | `npm run lint`          |
-| **JS Test**     | Jest (CRA default)     | `npm test`              |
+| **JS Lint**     | ESLect (CRA default)   | `bun run lint`          |
+| **JS Test**     | Jest (CRA default)     | `bun run test`              |
 
 ---
 

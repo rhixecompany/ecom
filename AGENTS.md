@@ -28,9 +28,9 @@ python manage.py test
 
 # Frontend
 cd frontend
-npm install
-npm start
-npm test
+bun install
+bun run start
+bun run test
 ```
 
 ## Conventions

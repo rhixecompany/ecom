@@ -88,10 +88,10 @@ python manage.py test
 
 ```bash
 cd frontend
-npm install
-npm start        # Development server
-npm test         # Run tests
-npm run build    # Production build
+bun install
+bun run start        # Development server
+bun run test         # Run tests
+bun run build    # Production build
 ```
 
 ### Docker

@@ -70,13 +70,13 @@
 2. **Install dependencies**
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. **Start development server**
 
    ```bash
-   npm start
+   bun run start
    ```
 
    Frontend runs at `http://localhost:3000`
@@ -93,7 +93,7 @@ python manage.py test
 
 ```bash
 cd frontend
-npm test
+bun run test
 ```
 
 ## Project Structure
@@ -278,14 +278,14 @@ python manage.py createsuperuser
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules
-npm install
+bun install
 ```
 
 **Port already in use**
 
 ```bash
 # Use different port
-PORT=3001 npm start
+PORT=3001 bun run start
 ```
 
 ## Code Style
@@ -310,7 +310,7 @@ PORT=3001 npm start
 
 ```bash
 cd frontend
-npm run build
+bun run build
 ```
 
 The build output is served by Django from `frontend/build/`.

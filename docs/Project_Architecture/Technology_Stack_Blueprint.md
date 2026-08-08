@@ -89,9 +89,9 @@ ecom/
 | ---------------------------- | ------------------------- |
 | `python manage.py runserver` | Django backend server     |
 | `python manage.py test`      | Run backend tests         |
-| `npm start`                  | React frontend dev server |
-| `npm test`                   | Run frontend tests        |
-| `npm run build`              | Production frontend build |
+| `bun run start`                  | React frontend dev server |
+| `bun run test`                   | Run frontend tests        |
+| `bun run build`              | Production frontend build |
 
 ---
 

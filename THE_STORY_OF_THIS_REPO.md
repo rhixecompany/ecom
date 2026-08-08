@@ -86,7 +86,7 @@ class CreatePayPalOrderView(APIView):
 
 ```
 Backend:  python manage.py runserver     # Port 8000
-Frontend: npm start                       # Port 3000
+Frontend: bun run start                       # Port 3000
 ```
 
 **CORS config:**

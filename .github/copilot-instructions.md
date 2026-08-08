@@ -21,10 +21,10 @@ python manage.py runserver
 python manage.py test
 python manage.py collectstatic
 python manage.py check --deploy
-cd frontend && npm install
-cd frontend && npm start
-cd frontend && npm test
-cd frontend && npm run build
+cd frontend && bun install
+cd frontend && bun run start
+cd frontend && bun run test
+cd frontend && bun run build
 ```
 
 ## Architecture

@@ -13,15 +13,15 @@ python manage.py runserver  # Runs on :9000
 
 # Frontend (separate terminal)
 cd frontend
-npm install
-npm start  # Runs on :3000 (proxied to :9000)
+bun install
+bun run start  # Runs on :3000 (proxied to :9000)
 ```
 
 ## Testing
 
 ```bash
 python manage.py test   # Django tests
-cd frontend && npm test  # React tests
+cd frontend && bun run test  # React tests
 ```
 
 ## Deployment
@@ -32,5 +32,5 @@ python manage.py collectstatic
 gunicorn ecom.wsgi:application --bind 0.0.0.0:9000
 
 # Frontend
-cd frontend && npm run build
+cd frontend && bun run build
 ```

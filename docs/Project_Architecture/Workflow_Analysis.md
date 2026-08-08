@@ -9,7 +9,7 @@
 **Type:** Ecommerce Platform
 **Stack:** Django REST Framework + React/Redux + PostgreSQL + PayPal
 **Architecture Pattern:** Dual-Stack (Django Backend + React SPA Frontend)
-**Entry Point:** API (`/api/v1/`) via DRF, React SPA via `npm start`
+**Entry Point:** API (`/api/v1/`) via DRF, React SPA via `bun run start`
 
 A full-stack ecommerce platform with product management, shopping cart, checkout, and order management.
 
@@ -83,7 +83,7 @@ React SPA               Django DRF API              Database              PayPal
 **Test Patterns:**
 
 - Backend: `python manage.py test` — `base/tests.py`
-- Frontend: `npm test` — React component tests
+- Frontend: `bun run test` — React component tests
 - API testing via DRF's APITestCase
 
 ---

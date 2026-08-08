@@ -45,10 +45,10 @@ python manage.py runserver
 cd frontend
 
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm start
+bun run start
 ```
 
 ## Documentation

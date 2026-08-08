@@ -16,4 +16,4 @@
 
 **Env**: `SECRET_KEY`, `DATABASE_URL`, `JWT_SECRET`, `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `CORS_ORIGINS`.
 
-**Commands**: `cd backend && pip install -r requirements.txt && python manage.py migrate && python manage.py runserver` (backend); `cd frontend && npm install && npm start` (frontend); `python manage.py test` (backend tests); `npm test` (frontend tests); Docker Compose for production.
+**Commands**: `cd backend && pip install -r requirements.txt && python manage.py migrate && python manage.py runserver` (backend); `cd frontend && bun install && bun run start` (frontend); `python manage.py test` (backend tests); `bun run test` (frontend tests); Docker Compose for production.
