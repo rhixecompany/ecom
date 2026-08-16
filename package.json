@@ -1,0 +1,12 @@
+{
+  "name": "ecom",
+  "version": "1.0.0",
+  "description": "Django REST + React/Redux ecommerce platform",
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "scripts": {
+    "check": "echo 'Ecom — Django backend + React frontend'",
+    "lint": "echo 'Frontend: cd frontend && bun run lint | Backend: cd backend && ruff check .'",
+    "typecheck": "echo 'Frontend: cd frontend && bun run typecheck | Backend: cd backend && pyright .'"
+  }
+}
