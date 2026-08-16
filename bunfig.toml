@@ -1,0 +1,13 @@
+# ecom — Bun configuration
+# Django REST + React/Redux ecommerce (Django backend + React frontend)
+
+[build]
+loader = false
+
+[test]
+coverage = true
+
+[install]
+optional = true
+dev = true
+peer = true
