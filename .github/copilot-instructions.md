@@ -1,41 +1,13 @@
-# Copilot Instructions
+# Copilot Instructions — ecom
 
-Project-wide guidance for the ecommerce platform.
+**Canonical reference:** See `../../AGENTS.md` (general agent guidance), `../../.hermes.md` (Hermes-specific), `../../CLAUDE.md` (Claude-specific).
 
-## Source of truth
-
-- `projects/ecom/AGENTS.md`
-- `README.md`
-- `frontend/`
-- Django backend files
-
-## Commands
-
-Run from the project root:
+## Quick Start
 
 ```bash
-python -m venv env
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-python manage.py test
-python manage.py collectstatic
-python manage.py check --deploy
-cd frontend && bun install
-cd frontend && bun run start
-cd frontend && bun run test
-cd frontend && bun run build
+# Subproject setup
+cd C:/Users/Alexa/Desktop/SandBox/projects/ecom
+# See project's package.json or README.md for specific commands
 ```
 
-## Architecture
-
-- Django REST backend serves product, cart, checkout, and admin workflows.
-- React frontend uses Redux + Thunk and React Bootstrap.
-- PayPal integration is part of the user checkout flow.
-
-## Conventions
-
-- Use DRF serializers and ViewSets for API boundaries.
-- Keep Redux code in the actions/reducers/constants pattern.
-- Use environment variables for secrets and storage credentials.
-- Preserve proxy/backend URL expectations when editing frontend code.
+*All conventions, workflows, and rules are in `../../AGENTS.md`.*
